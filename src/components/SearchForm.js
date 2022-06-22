@@ -4,7 +4,7 @@ const SearchForm = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         props.onSubmit(
-            e.target.elements.symbol.value,
+            e.target.elements.symbol.value.trim(),
             e.target.elements.year.value,
             e.target.elements.quarter.value
         );
@@ -17,7 +17,7 @@ const SearchForm = (props) => {
             <Form className="row" onSubmit={submitHandler}>
                 <Form.Group className="col-md-3 text-start mt-3" controlId="symbol">
                     <Form.Label>Symbol</Form.Label>
-                    <Form.Control type="text" required />
+                    <Form.Control type="text" required onChange={(e) => {e.target.value = e.target.value.toUpperCase()}} />
                 </Form.Group>
                 <Form.Group className="col-md-3 text-start mt-3" controlId="year">
                     <Form.Label>Year</Form.Label>
