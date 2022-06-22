@@ -22,7 +22,6 @@ const SearchForm = (props) => {
                 <Form.Group className="col-md-3 text-start mt-3" controlId="year">
                     <Form.Label>Year</Form.Label>
                     <Form.Select aria-label="Default select example">
-                        <option>-- Select --</option>
                         {
                             years.map((year) => <option selected={year === currentYear} value={year}>{year}</option>)
                         }
