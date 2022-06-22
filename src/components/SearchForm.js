@@ -17,7 +17,7 @@ const SearchForm = (props) => {
             <Form className="row" onSubmit={submitHandler}>
                 <Form.Group className="col-md-3 text-start mt-3" controlId="symbol">
                     <Form.Label>Symbol</Form.Label>
-                    <Form.Control type="text" />
+                    <Form.Control type="text" required />
                 </Form.Group>
                 <Form.Group className="col-md-3 text-start mt-3" controlId="year">
                     <Form.Label>Year</Form.Label>
