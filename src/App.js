@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import NavBar from './components/Navbar';
+import SearchForm from './components/SearchForm';
+import Transcript from './components/Transcript';
+import { getTrascript } from './services/api.service';
 
 function App() {
+  const [transcript, setTranscript] = useState(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <SearchForm
+        onSubmit={
+          async (symbol, year, quarter) => setTranscript(await getTrascript(symbol, year, quarter))
+        } />
+      <Transcript transcript={transcript} />
     </div>
   );
 }
